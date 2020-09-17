@@ -223,7 +223,7 @@ if (typeof(Storage) !== "undefined") {
         .fail(function () {
             const quote = "Understand the past, question the present, prepare for the future";
             const author = "Fusionneur";
-            document.getElementById('quote').innerHTML = `${quote}... <br> ${author}`;
+            document.getElementById('quote').innerHTML = `"${quote}"... <br> - ${author}`;
         })
         //.always(function () {
         //    alert("finished");
