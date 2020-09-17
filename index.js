@@ -196,7 +196,7 @@ if (typeof(Storage) !== "undefined") {
         //console.log("Using quote from cached variable in local storage");
         var quote = localStorage.getItem("quote");
         var author = localStorage.getItem("author");
-        document.getElementById('quote').innerHTML = `"${quote}"... <br> - ${author}`;
+        document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
     } else { //local storage expired, get updated quote
         const categories = ["inspire", "management", "life", "funny", "love", "art", "students"];
         const random = Math.floor(Math.random() * categories.length);
@@ -215,7 +215,7 @@ if (typeof(Storage) !== "undefined") {
             var quoteExpiry = now.getTime() + ttl;
             //console.log(quoteExpiry);
             localStorage.setItem("quoteExpiry", quoteExpiry);
-            document.getElementById('quote').innerHTML = `"${quote}"... <br> - ${author}`;
+            document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
         })
         //.done(function () {
         //    alert("second success");
@@ -223,7 +223,7 @@ if (typeof(Storage) !== "undefined") {
         .fail(function () {
             const quote = "Understand the past, question the present, prepare for the future";
             const author = "Fusionneur";
-            document.getElementById('quote').innerHTML = `"${quote}"... <br> - ${author}`;
+            document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
         })
         //.always(function () {
         //    alert("finished");
