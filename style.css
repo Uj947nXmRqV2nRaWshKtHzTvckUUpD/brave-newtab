@@ -26,7 +26,7 @@ body, html {
 /* fade in animation*/
 
 .fade-in {
-  -webkit-animation: fadeIn ease-in 1s;
+  -webkit-animation: fadeIn ease-in 1.5s;
   -webkit-animation-fill-mode: forwards;
 /* for compatibility
   animation: fadeIn ease-in 2s;
