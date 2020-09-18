@@ -13,8 +13,8 @@ let dom = document.getElementById("bgimg");
     const randomCategoryNumber = Math.floor(Math.random() * categories.length);
     const randomCategory = categories[randomCategoryNumber];
     //console.log("screen.resolution: " + screen.width + 'x' + screen.height);
-    //const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height) //no topic - much faster
-    const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height + '?' + randomCategory) //include specific search keywords
+    const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height) //no topic - much faster
+    //const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height + '?' + randomCategory) //include specific search keywords
         .then(response => response)
         .then((imageObj) => {
         //console.log('in async');
