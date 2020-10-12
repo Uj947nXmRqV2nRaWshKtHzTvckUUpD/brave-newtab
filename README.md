@@ -1,7 +1,7 @@
 <h1>BRAVE-NEWTAB</h1>
 An awesome new tab page replacement for Chromium based browsers (Brave, Chromium, Google Chrome, Microsoft Edge)
 
-<h3>How to install the extension: </h3>
+<h3>How to install the extension:</h3>
 <ul>
 <li>Clone this repository (you can use gitHub for Desktop) </li>
 <li>Open <strong>brave://extensions/ OR chrome://extensions/</strong></li>
