@@ -7,7 +7,7 @@ An awesome new tab page replacement for Chromium based browsers (Brave, Chromium
 <li>Open <strong>brave://extensions/ OR chrome://extensions/</strong></li>
 <li>Enable Developer Mode</li>
 <li>Click <strong>Load unpacked extension</strong> button and select the folder with the clone</li>
-<li>Enjoy!</li>
+<li>Enjoy a smooth experience!</li>
 </ul>
 
 <h3>To update the extension: </h3>
