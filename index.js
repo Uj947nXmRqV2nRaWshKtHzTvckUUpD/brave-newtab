@@ -22,11 +22,11 @@ let dom = document.getElementById("bgimg");
     const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height + '?' + randomCategory) //include specific search keywords
         .then(response => response)
         .then((imageObj) => {
-        //console.log('in async');
-        return imageObj;
-    }).catch(() => {
-        error();
-    });
+            //console.log('in async');
+            return imageObj;
+        }).catch(() => {
+            error();
+        });
 
     /*var propValue;
     for (var propName in imageObj) {
@@ -51,13 +51,13 @@ let dom = document.getElementById("bgimg");
         var photoURL = photoObj.url;
         //console.log("photoURL: " + photoURL);
 
-		//START OF ONLOAD
+        //START OF ONLOAD
         var img = new Image()
         img.onload = function () {
             dom.style.backgroundImage = `url(${photoURL})`;
         };
         img.src = photoURL;
-		//END OF ONLOAD
+        //END OF ONLOAD
 
         //dom.style.backgroundImage = 'url(' + photoURL + ')';
     })();
@@ -75,9 +75,9 @@ let dom = document.getElementById("bgimg");
     }
     function startTime() {
         var today = new Date(),
-        h = checkTime(today.getHours()),
-        m = checkTime(today.getMinutes()),
-        s = checkTime(today.getSeconds());
+            h = checkTime(today.getHours()),
+            m = checkTime(today.getMinutes()),
+            s = checkTime(today.getSeconds());
         let time = h + ":" + m;
         document.getElementById('time').innerHTML = time;
         setTimeout(function () {
@@ -149,7 +149,7 @@ var ip = response.ip;
  */
 
 //Weather (updated each 10 minutes)
-if (typeof(Storage) !== "undefined") {
+if (typeof (Storage) !== "undefined") {
     var expiry = localStorage.getItem("expiry");
     //console.log("previous city expiry time: " + expiry);
     //console.log("Web Storage support - OK");
@@ -233,14 +233,14 @@ if (typeof(Storage) !== "undefined") {
             localStorage.setItem("quoteExpiry", quoteExpiry);
             document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
         })
-        //.done(function () {
-        //    alert("second success");
-        //})
-        .fail(function () {
-            const quote = "Understand the past, question the present, prepare for the future";
-            const author = "Fusionneur";
-            document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
-        })
+            //.done(function () {
+            //    alert("second success");
+            //})
+            .fail(function () {
+                const quote = "Understand the past, question the present, prepare for the future";
+                const author = "Fusionneur";
+                document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
+            })
         //.always(function () {
         //    alert("finished");
         //});
