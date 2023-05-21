@@ -3,8 +3,8 @@
 let dom = document.getElementById("bgimg");
 
 (function () {
-    const categories = ["inspire", "life", "funny", "love", "art", "party", "summer", "technology", "nature", "dream", "space", "inspirational", "motivational", "photography", "animals", "alpaca", "game", "music", "girl", "sexy", "flower", "tribal", "star", "chill", "relax", "coffee", "bird", "mountain", "aurora", "portrait", "joke", "event", "fashion", "travel", "architecture", "pet", "sports", "aerial", "science", "stock", "crystal", "gem", "cute", "piano", "drums", "guitar", "electro", "cat", "dog", "sweet", "landscape", "minimalist", "thinkins", "success", "statue", "young", "diva", "woman", "vr", "freedom", "stylish", "colourful", "futuristic", "abstract", "brain", "human", "skyline", "sunrise", "sunset", "greece", "italy", "food", "healthy", "convertible", "couple", "shoes", "sheep", "laugh", "smile", "happy", "child", "outdoor", "plane", "cosplay", "costume", "peace", "countryside", "tuscany", "leaves", "africal", "artificial", "intelligence", "family", "woods", "wireless", "city", "hands", "theater", "cinema", "movie", "retriever", "wedding", "teacher", "road", "gun", "wild", "lips", "jump", "wolf", "picture", "car", "sportscar", "legacy", "rocket", "saturn", "galaxy", "sun", "royal", "rock", "cartoon", "beach", "palm", "skyscraper", "graffiti", "spider", "butterfly", "kiss", "kid", "spaceship", "robot", "motorcycle", "blonde", "malta", "los angeles", "bike", "perfect-body", "model", "drummer"]; //curated list of categories
-    //const categories = ["winter", "autumn", "snow", "business", "management", "universe" ]; //extra categories
+    const categories = ["inspire", "life", "funny", "love", "art", "party", "summer", "technology", "forest", "jungle", "desert", "nature", "dream", "space", "inspirational", "motivational", "photography", "animals", "alpaca", "game", "music", "girl", "sexy", "flower", "tribal", "star", "chill", "relax", "coffee", "bird", "mountain", "aurora", "portrait", "joke", "event", "fashion", "travel", "architecture", "pet", "sports", "aerial", "science", "stock", "crystal", "gem", "cute", "piano", "drums", "guitar", "electro", "kitten", "cat", "dog", "sweet", "dessert", "landscape", "minimalist", "thinkins", "success", "statue", "young", "diva", "woman", "vr", "freedom", "stylish", "colourful", "futuristic", "abstract", "brain", "human", "skyline", "sunrise", "sunset", "greece", "italy", "food", "healthy", "convertible", "couple", "shoes", "sheep", "laugh", "smile", "happy", "child", "outdoor", "plane", "cosplay", "costume", "peace", "countryside", "tuscany", "leaves", "africal", "artificial", "intelligence", "family", "woods", "wireless", "city", "hands", "theater", "cinema", "movie", "retriever", "wedding", "teacher", "road", "gun", "wild", "lips", "jump", "wolf", "picture", "car", "sportscar", "legacy", "rocket", "saturn", "galaxy", "sun", "royal", "rock", "cartoon", "beach", "palm", "skyscraper", "graffiti", "spider", "butterfly", "kiss", "kid", "spaceship", "robot", "motorcycle", "blonde", "malta", "los angeles", "bike", "perfect-body", "model", "drummer", "supercar", "4k", "HD", "paint"]; //curated list of categories
+    //const categories = ["winter", "autumn", "snow", "business", "management", "universe", "eye" ]; //extra categories
 
     //const photoTypes = ["random", "featured"]
     //const photoTypeNumber = Math.floor(Math.random() * photoTypes.length);
@@ -18,8 +18,9 @@ let dom = document.getElementById("bgimg");
 
     //console.log("screen.resolution: " + screen.width + 'x' + screen.height);
 
-    //const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height) //no topic - much faster ; since 19 Dec 2020 - it's broke
+    //const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height) //no topic - much faster
     const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height + '?' + randomCategory) //include specific search keywords
+    //eg. https://source.unsplash.com/featured/1920x1080?drummer
         .then(response => response)
         .then((imageObj) => {
             //console.log('in async');
@@ -170,7 +171,7 @@ if (typeof (Storage) !== "undefined") {
             //console.log(city);
             const ttl = 10 * 60 * 1000; // 10 minutes to live (in milliseconds)
             var expiry = now.getTime() + ttl;
-            //console.log(quoteExpiry);
+            //console.log(expiry);
             localStorage.setItem("expiry", expiry);
             $.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=7e4dd03efbd4c382e324241cd5ab52ec' + '&units=metric', function (response) {
                 //console.log(response);
@@ -214,20 +215,27 @@ if (typeof (Storage) !== "undefined") {
         var author = localStorage.getItem("author");
         document.getElementById('quote').innerHTML = `“${quote}”... <br> – ${author}`;
     } else { //local storage expired, get updated quote
-        const categories = ["inspire", "management", "life", "funny", "love", "art", "students"];
+        const categories = ["courage", "creativity", "character", "failure", "famous-quotes", "freedom", "future", "gratitude", "happiness", "humorous", "imagination", "inspirational", "knowledge", "leadership", "life", "motivational", "perseverance", "philosophy", "proverb", "power-quotes", "science", "society", "spirituality", "success", "technology", "time", "truth", "virtue", "wellness", "wisdom"]; // https://api.quotable.io/tags
         const random = Math.floor(Math.random() * categories.length);
         const randomCategory = categories[random];
         //console.log(randomCategory);
         //console.log("previous quote expired. Requesting new one");
-        $.get('https://quotes.rest/qod?category=' + randomCategory, function (response) {
-            //console.log(response);
-            var quote = response.contents.quotes[0].quote;
-            var author = response.contents.quotes[0].author;
+        
+        //$.get('https://quotes.rest/qod?category=' + randomCategory, function (response) { // requires key
+        //$.get('https://zenquotes.io/api/today' + randomCategory, function (response) { // cors error
+        $.get('https://api.quotable.io/random?tags=' + randomCategory + '&maxLength=500', function (response) {
+            //REF: https://github.com/lukePeavey/quotable
+
+            console.log(response);
+            //var quote = response.contents.quotes[0].quote; //quotes.rest
+            var quote = response.content;
+            //var author = response.contents.quotes[0].author; //quotes.rest
+            var author = response.author;
             // Store value
             localStorage.setItem("quote", quote);
             localStorage.setItem("author", author);
-            const ttl = 60 * 60 * 1000; // 1hour time to live (in milliseconds)
-            //quotes.rest allows 10 calls per hour in free plan
+            //const ttl = 60 * 60 * 1000; // 1hour time to live (in milliseconds) // useful for quotes.rest - allows 10 calls per hour in free plan
+            const ttl = 5 * 1000; // 5 seconds for quotable.io
             var quoteExpiry = now.getTime() + ttl;
             //console.log(quoteExpiry);
             localStorage.setItem("quoteExpiry", quoteExpiry);
