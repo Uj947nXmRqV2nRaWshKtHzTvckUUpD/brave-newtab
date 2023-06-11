@@ -310,4 +310,5 @@ https://home.openweathermap.org/api_keys
 
 //image
 https://source.unsplash.com/
+// alternative: https://picsum.photos/
 */
