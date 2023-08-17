@@ -60,6 +60,7 @@ html {
   outline: none;
   font-size: 1.1em;
   color: rgb(12, 12, 12);
+  background-color: whitesmoke;
   text-rendering: optimizeLegibility;
   text-decoration: solid;
 }
