@@ -109,7 +109,7 @@ tab.setDateDetails();
 insertinDom();
 
 function insertinDom() {
-    document.getElementById('date').innerHTML = `${tab.dateDetails.day}, ${tab.dateDetails.month} ${tab.dateDetails.date}`;
+    document.getElementById('date').innerHTML = `It's ${tab.dateDetails.day}, ${tab.dateDetails.month} ${tab.dateDetails.date}`;
     document.getElementById('weather').innerHTML = '<br>'; //create space for weather
 }
 
