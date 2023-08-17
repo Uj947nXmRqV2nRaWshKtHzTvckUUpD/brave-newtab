@@ -281,7 +281,7 @@ function isMorning() {
 //console.log("isMorning: " + isMorning())
 
 function greeting() {
-    const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,', 'What are you up to now,'];
+    const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,'];
     const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome,', 'Hi,', 'Hello,', 'Welcome back,', 'Hi there,'];
     const night_greetings = ['Good evening,', 'Evening,', 'Good night,', 'Sweet dreams,'];
     const greet_html = document.getElementById('search_box');
@@ -289,16 +289,16 @@ function greeting() {
     
     if (isMorning()) {
         console.log("It's morning!")
-        var greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)] + " " + username;
+        var greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)];
     } else if (hours > 11 && hours < 17) { //if its the afternoon before 5 o'clock
         console.log("It's afternoon!")
-        var greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)] + " " + username;
+        var greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)];
     } else {
         console.log("It's night!")
-        var greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + username;
+        var greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)];
     }
     //console.log("greetingMessage: " + greetingMessage)
-    greet_html.placeholder = greetingMessage;
+    greet_html.placeholder = greetingMessage + " " + username + '. What are you up to now?';
 }
 
 greeting();
