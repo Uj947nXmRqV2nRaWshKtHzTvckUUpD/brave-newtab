@@ -19,7 +19,7 @@ html {
   text-align: center;
   filter: blur(.3px);
 }
-
+/* you can use box-shadow: 3px 9px 20px #888888; to debug the container */
 
 
 /* fade in animation*/
@@ -57,7 +57,7 @@ html {
   height:3%;
   border:none;
   border-radius: 100px;
-  box-shadow: 3px 9px 20px #888888;
+  box-shadow: 3px 5px 15px #888888;
   outline: none;
   font-size: 1.1em;
   color: rgb(12, 12, 12);
