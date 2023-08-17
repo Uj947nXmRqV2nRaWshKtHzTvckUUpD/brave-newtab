@@ -223,7 +223,7 @@ if (typeof (Storage) !== "undefined") {
 
         //$.get('https://quotes.rest/qod?category=' + randomCategory, function (response) { // requires key
         //$.get('https://zenquotes.io/api/today' + randomCategory, function (response) { // cors error
-        $.get('https://api.quotable.io/random?tags=' + randomCategory + '&maxLength=200', function (response) {
+        $.get('https://api.quotable.io/random?tags=' + randomCategory + '&maxLength=150', function (response) {
             //REF: https://github.com/lukePeavey/quotable
 
             //console.log(response);
@@ -267,34 +267,37 @@ if (typeof (Storage) !== "undefined") {
 // https://github.com/mmoderwell/startpage/blob/master/startpage.html
 
 let time = new Date();
-var username = "human"
+var username = "human";
+let hours = time.getHours();
 
 function isMorning() {
-    let hours = time.getHours();
-    console.log("hours: " + hours)
-    if (hours >= 12)
+    if (hours > 11 || hours < 5) // 5-11 AM (including) is morning
         return false;
     else
         return true;
 }
+console.log("hours: " + hours)
+console.log("isMorning: " + isMorning())
 
 function greeting() {
-    const morning_greetings = ['Good morning,', 'Morning,', 'Rise n\' shine,', 'Greetings', 'Hi there,', 'Welcome back,'];
-    const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome', 'Hi', 'Hello', 'Welcome back,'];
-    const night_greetings = ['Good evening,', 'Evening,', 'Welcome,', 'Hi', 'Hello', 'Good night,', 'Sweet dreams,', 'Welcome back,'];
+    const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,'];
+    const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome', 'Hi', 'Hello', 'Welcome back,', 'Hi there'];
+    const night_greetings = ['Good evening,', 'Evening,', 'Good night,', 'Sweet dreams,'];
     const greet_html = document.getElementById('search_box');
+
+    
     if (isMorning()) {
         console.log("It's morning!")
-        greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)] + " " + username;
-    } else if (time.getHours() < 17) { //if its the afternoon and before 5 o'clock
-        greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)] + " " + username;
+        var greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)] + " " + username;
+    } else if (hours > 11 && hours < 17) { //if its the afternoon before 5 o'clock
         console.log("It's afternoon!")
+        var greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)] + " " + username;
     } else {
-        greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + username;
         console.log("It's night!")
+        var greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + username;
     }
     console.log("greetingMessage: " + greetingMessage)
-    greet_html.innerHTML = greetingMessage;
+    greet_html.placeholder = greetingMessage;
 }
 
 greeting();
