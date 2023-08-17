@@ -46,13 +46,19 @@ html {
 
 /* search box */
 #search_box {
-  opacity: 0.7;
+  opacity: 0.3;
   position: absolute;
   top: 95%;
   left: 19%;
   transform: translate(-50%, -50%);
   filter: blur(.3px);
   text-align: center;
+  color: rgba(14, 172, 114, 0.5);
+  overflow:hidden;
+  width:260px;
+  height:30px;
+  border:none;
+  outline: none;
 }
 
 
