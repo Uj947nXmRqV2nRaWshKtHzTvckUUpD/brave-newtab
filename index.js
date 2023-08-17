@@ -276,8 +276,9 @@ function isMorning() {
     else
         return true;
 }
-console.log("hours: " + hours)
-console.log("isMorning: " + isMorning())
+
+//console.log("hours: " + hours)
+//console.log("isMorning: " + isMorning())
 
 function greeting() {
     const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,', 'What are you up to now,'];
@@ -296,7 +297,7 @@ function greeting() {
         console.log("It's night!")
         var greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + username;
     }
-    console.log("greetingMessage: " + greetingMessage)
+    //console.log("greetingMessage: " + greetingMessage)
     greet_html.placeholder = greetingMessage;
 }
 
