@@ -20,7 +20,7 @@ let dom = document.getElementById("bgimg");
 
     //const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height) //no topic - much faster
     const promisedImage = fetch('https://source.unsplash.com/' + photoType + '/' + screen.width + 'x' + screen.height + '?' + randomCategory) //include specific search keywords
-    //eg. https://source.unsplash.com/featured/1920x1080?drummer
+        //eg. https://source.unsplash.com/featured/1920x1080?drummer
         .then(response => response)
         .then((imageObj) => {
             //console.log('in async');
@@ -56,11 +56,11 @@ let dom = document.getElementById("bgimg");
         var img = new Image()
         img.onload = function () {
             dom.style.backgroundImage = `url(${photoURL})`;
+            dom.style.animation = 'fadeIn ease-in .5s'
         };
         img.src = photoURL;
         //END OF ONLOAD
 
-        //dom.style.backgroundImage = 'url(' + photoURL + ')';
     })();
 
     function error() {
@@ -220,13 +220,13 @@ if (typeof (Storage) !== "undefined") {
         const randomCategory = categories[random];
         //console.log(randomCategory);
         //console.log("previous quote expired. Requesting new one");
-        
+
         //$.get('https://quotes.rest/qod?category=' + randomCategory, function (response) { // requires key
         //$.get('https://zenquotes.io/api/today' + randomCategory, function (response) { // cors error
-        $.get('https://api.quotable.io/random?tags=' + randomCategory + '&maxLength=500', function (response) {
+        $.get('https://api.quotable.io/random?tags=' + randomCategory + '&maxLength=200', function (response) {
             //REF: https://github.com/lukePeavey/quotable
 
-            console.log(response);
+            //console.log(response);
             //var quote = response.contents.quotes[0].quote; //quotes.rest
             var quote = response.content;
             //var author = response.contents.quotes[0].author; //quotes.rest
@@ -262,6 +262,46 @@ if (typeof (Storage) !== "undefined") {
 
 //____________________________________________________________________________
 
+// Greeting
+
+// https://github.com/mmoderwell/startpage/blob/master/startpage.html
+
+let time = new Date();
+var username = "human"
+
+function isMorning() {
+    let hours = time.getHours();
+    console.log("hours: " + hours)
+    if (hours >= 12)
+        return false;
+    else
+        return true;
+}
+
+function greeting() {
+    const morning_greetings = ['Good morning,', 'Morning,', 'Rise n\' shine,', 'Greetings', 'Hi there,', 'Welcome back,'];
+    const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome', 'Hi', 'Hello', 'Welcome back,'];
+    const night_greetings = ['Good evening,', 'Evening,', 'Welcome,', 'Hi', 'Hello', 'Good night,', 'Sweet dreams,', 'Welcome back,'];
+    const greet_html = document.getElementById('search_box');
+    if (isMorning()) {
+        console.log("It's morning!")
+        greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)] + " " + username;
+    } else if (time.getHours() < 17) { //if its the afternoon and before 5 o'clock
+        greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)] + " " + username;
+        console.log("It's afternoon!")
+    } else {
+        greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)] + " " + username;
+        console.log("It's night!")
+    }
+    console.log("greetingMessage: " + greetingMessage)
+    greet_html.innerHTML = greetingMessage;
+}
+
+greeting();
+
+
+
+//____________________________________________________________________________
 
 /*REF:
 // $. is an alias for jQuery
@@ -280,8 +320,7 @@ https://jquery.com/download/
 //get IP
 https://www.ipify.org/ //use https://api.ipify.org?format=jsonp
 https://stackoverflow.com/questions/2067472/what-is-jsonp-and-why-was-it-created
-/*if used add this snippet in manifest
-,
+/*if used add this snippet in manifest,
 "content_scripts": [{
 "matches": [
 "https://api.ipify.org/*"

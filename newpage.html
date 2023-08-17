@@ -2,43 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 	<link rel="stylesheet" href="style.css">
-	<script src="jquery-3.5.1.min.js"></script>
+	<script src="jquery.js"></script>
+	<!-- disable localcdn extension to download latest compressed non-slim production rdy jquery from https://jquery.com/download/ . slim version does not properly load apis -->
 	<title>Brave Tab</title>
 </head>
 
+
+
+
+
 <body class="fade-in" style="background-color:#121212;">
 
-		<!--
-		<iframe id="search"
-		src="https://duckduckgo.com/search.html?focus=yes"
-		style="overflow:hidden; width:240px; height:60px;"
-		frameborder="0">
-		</iframe>
-		-->
-
 	<script defer src="index.js"></script>
-	
+
 	<div id="bgimg">
 		<div class="position">
 			<span style="color: white; font-size: 13vh; text-shadow: 0px 0px 20px black;" id="time">
 			</span>
-		<br>
+			<br>
 			<span style="color: white; font-size: 3vh; text-shadow: 0px 0px 15px black;" id="date"></span>
-		<br>
-			<span class="fade-in" style="color: white; font-style: oblique; font-size: 3vh; text-shadow: 0px 0px 10px black;" id="weather"></span>
+			<br>
+			<span class="fade-in"
+				style="color: white; font-style: oblique; font-size: 3vh; text-shadow: 0px 0px 10px black;"
+				id="weather"></span>
 			<!--<span class="fade-in" style="font-family:Verdana; font-style: italic; color: white; font-size: 4vh;text-shadow: 0px 0px 20px grey;" id="weather"></span>-->
-		<br><br>
-		<center>
-			<div class="wrap">
-				<span class="fade-in" style="color: white; font-style: oblique; font-size: 2vh; text-shadow: 0px 0px 10px black;" id="quote"></span>
-			</div>
-		</center>
+			<br><br>
+			<center>
+				<div class="wrap">
+					<span class="fade-in"
+						style="color: white; font-style: oblique; font-size: 2vh; text-shadow: 0px 0px 10px black;"
+						id="quote"></span>
+				</div>
+			</center>
 		</div>
+
+		<!-- https://github.com/patdryburgh/ddg-searchbox -->
+		<div>
+			<!-- -->
+			<form method="get" action="https://duckduckgo.com/">
+			<input id="search_box" type="text" name="q" placeholder="What are you up to now?" autofocus style="overflow:hidden; width:260px; height:30px;" frameborder="0" />
+			
+			<!-- -->
+			
+			<!-- NOT WORKING
+			<form method="post" action="https://www.startpage.com/do/search"></form>
+			<input id="search_box" type="text" name="query" placeholder="What are you up to now?" autofocus />
+			-->
+
+			<!-- <button id="search_icon" type="submit" formaction="https://duckduckgo.com/"></button> -->
+			</form>
+		</div>
+		
 	</div>
 </body>
+
+
+
+
+
+
+
+
 
 
 
