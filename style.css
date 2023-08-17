@@ -46,18 +46,18 @@ html {
 
 /* search box */
 #search_box {
-  opacity: 0.3;
+  opacity: 0.9;
   position: absolute;
-  top: 95%;
+  top: 50%;
   left: 19%;
   transform: translate(-50%, -50%);
   filter: blur(.3px);
   text-align: center;
-  color: rgba(14, 172, 114, 0.5);
   overflow:hidden;
   width:260px;
-  height:30px;
+  height:20px;
   border:none;
+  border-radius: 10px;
   outline: none;
 }
 
