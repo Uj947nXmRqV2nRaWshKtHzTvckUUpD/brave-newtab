@@ -298,7 +298,7 @@ function greeting() {
         var greetingMessage = night_greetings[Math.floor(Math.random() * night_greetings.length)];
     }
     //console.log("greetingMessage: " + greetingMessage)
-    greet_html.placeholder = greetingMessage + " " + username + '! What are you up to now?';
+    greet_html.placeholder = greetingMessage + " " + username + '! What are you up to?';
 }
 
 greeting();
