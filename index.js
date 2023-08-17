@@ -280,8 +280,8 @@ console.log("hours: " + hours)
 console.log("isMorning: " + isMorning())
 
 function greeting() {
-    const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,'];
-    const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome', 'Hi', 'Hello', 'Welcome back,', 'Hi there'];
+    const morning_greetings = ['Good morning,', 'Mornin\',', 'Rise n\' shine,', 'What are you up to now,'];
+    const afternoon_greetings = ['Good afternoon,', 'Afternoon,', 'Greetings,', 'Welcome,', 'Hi,', 'Hello,', 'Welcome back,', 'Hi there,'];
     const night_greetings = ['Good evening,', 'Evening,', 'Good night,', 'Sweet dreams,'];
     const greet_html = document.getElementById('search_box');
 
