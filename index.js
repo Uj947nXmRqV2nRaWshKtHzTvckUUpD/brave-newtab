@@ -290,7 +290,7 @@ function greeting() {
     if (isMorning()) {
         console.log("It's morning!")
         var greetingMessage = morning_greetings[Math.floor(Math.random() * morning_greetings.length)];
-    } else if (hours > 11 && hours < 17) { //if its the afternoon before 5 o'clock
+    } else if (hours > 11 && hours < 18) { //if its the afternoon before 5 o'clock
         console.log("It's afternoon!")
         var greetingMessage = afternoon_greetings[Math.floor(Math.random() * afternoon_greetings.length)];
     } else {
