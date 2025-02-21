@@ -2,6 +2,8 @@
 
 let dom = document.getElementById("bgimg");
 
+
+// unsplash KO since '24
 (function () {
     const categories = ["inspire", "life", "funny", "love", "art", "party", "summer", "technology", "forest", "jungle", "desert", "nature", "dream", "space", "inspirational", "motivational", "photography", "animals", "alpaca", "game", "music", "girl", "sexy", "flower", "tribal", "star", "chill", "relax", "coffee", "bird", "mountain", "aurora", "portrait", "joke", "event", "fashion", "travel", "architecture", "pet", "sports", "aerial", "science", "stock", "crystal", "gem", "cute", "piano", "drums", "guitar", "electro", "kitten", "cat", "dog", "sweet", "dessert", "landscape", "minimalist", "thinkins", "success", "statue", "young", "diva", "woman", "vr", "freedom", "stylish", "colourful", "futuristic", "abstract", "brain", "human", "skyline", "sunrise", "sunset", "greece", "italy", "food", "healthy", "convertible", "couple", "shoes", "sheep", "laugh", "smile", "happy", "child", "outdoor", "plane", "cosplay", "costume", "peace", "countryside", "tuscany", "leaves", "africal", "artificial", "intelligence", "family", "woods", "wireless", "city", "hands", "theater", "cinema", "movie", "retriever", "wedding", "teacher", "road", "gun", "wild", "lips", "jump", "wolf", "picture", "car", "sportscar", "legacy", "rocket", "saturn", "galaxy", "sun", "royal", "rock", "cartoon", "beach", "palm", "skyscraper", "graffiti", "spider", "butterfly", "kiss", "kid", "spaceship", "robot", "motorcycle", "blonde", "malta", "los angeles", "bike", "perfect-body", "model", "drummer", "supercar", "4k", "HD", "paint", "rapper", "cool", "AI", "metaverse"]; //curated list of categories
     //const categories = ["metaverse"];
